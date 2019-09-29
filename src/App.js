@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Homepage from "./pages/homepage";
 import { Route, Switch } from "react-router-dom";
+import ShopPage from "./pages/ShopPage";
 
 export default class App extends Component {
   render() {
@@ -8,7 +9,7 @@ export default class App extends Component {
       <div>
         <Switch>
           <Route exact path="/" component={Homepage} />
-          <Route path="/hats" render={() => <h1>HATS</h1>} />
+          <Route path="/shop" component={ShopPage} />
         </Switch>
       </div>
     );
