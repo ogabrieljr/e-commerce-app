@@ -1,9 +1,9 @@
 import React from "react";
 import "./style.scss";
 
-export default function button({ children, ...otherProps }) {
+export default function button({ children, signedIn, ...props }) {
   return (
-    <button className="custom-button" {...otherProps}>
+    <button className={`${signedIn ? "google-signed-in" : ""} custom-button`} {...props}>
       {children}
     </button>
   );
