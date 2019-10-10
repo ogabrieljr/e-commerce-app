@@ -37,7 +37,7 @@ export default class Signin extends Component {
       <div className="sign-in">
         <h2>Already have an account?</h2>
         <span>Sign in</span>
-        <form onSubmit={this.submit}>
+        <div>
           <Input
             change={this.change}
             name="email"
@@ -55,12 +55,14 @@ export default class Signin extends Component {
             required
           />
           <div className="buttons">
-            <Button type="submit">Sign in</Button>
+            <Button onClick={this.submit} type="submit">
+              Sign in
+            </Button>
             <Button signedIn onClick={signInWithGoogle}>
               Sign in with Google
             </Button>
           </div>
-        </form>
+        </div>
       </div>
     );
   }
