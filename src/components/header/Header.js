@@ -5,6 +5,7 @@ import "./style.scss";
 import { auth } from "../../firebase/Firebase";
 import { connect } from "react-redux";
 import CartIcon from "../cart icon/CartIcon";
+import Dropdown from "../cart dropdown/Dropdown";
 
 function Header({ currentUser }) {
   return (
@@ -30,6 +31,7 @@ function Header({ currentUser }) {
         )}
         <CartIcon />
       </div>
+      <Dropdown />
     </div>
   );
 }
