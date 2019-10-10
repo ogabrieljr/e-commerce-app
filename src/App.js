@@ -7,7 +7,7 @@ import Header from "./components/header/Header";
 import Form from "./pages/form/Form";
 import { auth, createUserProfileDocument } from "./firebase/Firebase";
 import { connect } from "react-redux";
-import { setCurrentUser } from "./redux/userActions";
+import { setCurrentUser } from "./redux/user/userActions";
 
 class App extends Component {
   unsubscribeFromAuth = null;
