@@ -2,7 +2,8 @@ import React from "react";
 import "./style.scss";
 import Button from "../button/button";
 
-export default function CollectionItem({ name, price, imageUrl }) {
+export default function CollectionItem({ item }) {
+  const { name, price, imageUrl } = item;
   return (
     <div className="collection-item">
       <div
