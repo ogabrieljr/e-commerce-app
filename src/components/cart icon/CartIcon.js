@@ -2,7 +2,7 @@ import React from "react";
 import { ReactComponent as Icon } from "../../assets/cart icon.svg";
 import "./style.scss";
 import { connect } from "react-redux";
-import { toggleCartState } from "../../redux/cart/cartAction";
+import { toggleCartState } from "../../redux/cart/cartActions";
 
 function CartIcon({ toggleCartState }) {
   return (
