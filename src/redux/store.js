@@ -1,9 +1,9 @@
 import { createStore, combineReducers, applyMiddleware } from "redux";
 import userReducer from "./user/userReducer";
 import cartReducer from "./cart/cartReducer";
-import logger from "redux-logger";
+// import logger from "redux-logger";
 
-const middlewares = [logger];
+const middlewares = [];
 
 const rootReducer = combineReducers({ userReducer, cartReducer });
 
