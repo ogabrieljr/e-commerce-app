@@ -7,10 +7,11 @@ import CartItem from "../cart item/CartItem";
 function Dropdown({ items }) {
   return (
     <div className="cart-dropdown">
-      <div className="cart-items" />
-      {items.map(item => (
-        <CartItem key={item.id} item={item} />
-      ))}
+      <div className="cart-items">
+        {items.map(item => (
+          <CartItem key={item.id} item={item} />
+        ))}
+      </div>
       <Button>GO TO CHECKOUT</Button>
     </div>
   );
