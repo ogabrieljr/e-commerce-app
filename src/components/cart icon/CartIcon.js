@@ -8,8 +8,7 @@ function CartIcon({ toggleCartState, count }) {
   return (
     <div onClick={toggleCartState} className="cart-icon">
       <Icon className="shopping-icon" />
-      {console.log(count)}
-      <span className="item-count">0</span>
+      <span className="item-count">{count}</span>
     </div>
   );
 }
@@ -20,9 +19,9 @@ const mapDispatchToProps = dispatch => ({
 
 const mapStateToProps = state => ({
   count: state.cartReducer.items.reduce((acc, item) => {
-    return item
-  },0)
-})
+    return acc + item.quantity;
+  }, 0)
+});
 
 export default connect(
   mapStateToProps,
