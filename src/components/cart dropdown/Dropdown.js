@@ -3,8 +3,9 @@ import Button from "../button/button";
 import "./style.scss";
 import { connect } from "react-redux";
 import CartItem from "../cart item/CartItem";
+import { withRouter } from "react-router-dom";
 
-function Dropdown({ items }) {
+function Dropdown({ items, history }) {
   return (
     <div className="cart-dropdown">
       <div className="cart-items">
@@ -14,7 +15,7 @@ function Dropdown({ items }) {
           <span className="message">Your cart is empty!</span>
         )}
       </div>
-      <Button>GO TO CHECKOUT</Button>
+      <Button onClick={() => history.push("/checkout")}>GO TO CHECKOUT</Button>
     </div>
   );
 }
@@ -23,4 +24,4 @@ const mapStateToProps = state => ({
   items: state.cartReducer.items
 });
 
-export default connect(mapStateToProps)(Dropdown);
+export default withRouter(connect(mapStateToProps)(Dropdown));
