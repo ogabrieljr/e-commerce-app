@@ -18,6 +18,11 @@ export const getItems = createSelector(
   cart => cart.items
 );
 
+export const getHiddenState = createSelector(
+  [cartState],
+  cart => cart.hidden
+);
+
 export const itemCount = createSelector(
   [cartState],
   cart =>

@@ -8,7 +8,8 @@ import Form from "./pages/form/Form";
 import { auth, createUserProfileDocument } from "./firebase/Firebase";
 import { connect } from "react-redux";
 import { setCurrentUser } from "./redux/user/userActions";
-import Checkout from "./pages/checkout/Checkout"
+import Checkout from "./pages/checkout/Checkout";
+import { getCurrentUser } from "./redux/user/userSelector";
 
 class App extends Component {
   unsubscribeFromAuth = null;
@@ -52,7 +53,7 @@ class App extends Component {
 }
 
 const mapStateToProps = state => ({
-  currentUser: state.userReducer.currentUser
+  currentUser: getCurrentUser(state)
 });
 
 const mapDispatchToProps = dispatch => ({
