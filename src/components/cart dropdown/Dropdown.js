@@ -7,7 +7,7 @@ import { withRouter } from "react-router-dom";
 import { getItems } from "../../redux/cart/cartSelectors";
 import { toggleHiddenState } from "../../redux/cart/cartActions";
 
-function Dropdown({ items, history, toggleHiddenState }) {
+function Dropdown({ items, history, dispatch }) {
   return (
     <div className="cart-dropdown">
       <div className="cart-items">
@@ -19,7 +19,7 @@ function Dropdown({ items, history, toggleHiddenState }) {
       </div>
       <Button
         onClick={() => {
-          toggleHiddenState();
+          dispatch(toggleHiddenState());
           history.push("/checkout");
         }}>
         GO TO CHECKOUT
@@ -31,13 +31,5 @@ function Dropdown({ items, history, toggleHiddenState }) {
 const mapStateToProps = state => ({
   items: getItems(state)
 });
-const mapDispatchToProps = dispatch => ({
-  toggleHiddenState: () => dispatch(toggleHiddenState())
-});
 
-export default withRouter(
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )(Dropdown)
-);
+export default withRouter(connect(mapStateToProps)(Dropdown));
