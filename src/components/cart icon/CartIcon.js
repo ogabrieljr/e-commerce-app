@@ -2,12 +2,12 @@ import React from "react";
 import { ReactComponent as Icon } from "../../assets/cart icon.svg";
 import "./style.scss";
 import { connect } from "react-redux";
-import { toggleCartState } from "../../redux/cart/cartActions";
+import { toggleHiddenState } from "../../redux/cart/cartActions";
 import { itemCount } from "../../redux/cart/cartSelectors";
 
-function CartIcon({ toggleCartState, count }) {
+function CartIcon({ toggleHiddenState, count }) {
   return (
-    <div onClick={toggleCartState} className="cart-icon">
+    <div onClick={toggleHiddenState} className="cart-icon">
       <Icon className="shopping-icon" />
       <span className="item-count">{count}</span>
     </div>
@@ -15,7 +15,7 @@ function CartIcon({ toggleCartState, count }) {
 }
 
 const mapDispatchToProps = dispatch => ({
-  toggleCartState: () => dispatch(toggleCartState())
+  toggleHiddenState: () => dispatch(toggleHiddenState())
 });
 
 const mapStateToProps = state => ({

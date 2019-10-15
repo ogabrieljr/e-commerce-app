@@ -1,4 +1,4 @@
-export const toggleCartState = () => ({
+export const toggleHiddenState = () => ({
   type: "TOGGLE_CART_STATE"
 });
 

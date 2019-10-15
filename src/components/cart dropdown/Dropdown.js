@@ -5,8 +5,9 @@ import { connect } from "react-redux";
 import CartItem from "../cart item/CartItem";
 import { withRouter } from "react-router-dom";
 import { getItems } from "../../redux/cart/cartSelectors";
+import { toggleHiddenState } from "../../redux/cart/cartActions";
 
-function Dropdown({ items, history }) {
+function Dropdown({ items, history, toggleHiddenState }) {
   return (
     <div className="cart-dropdown">
       <div className="cart-items">
@@ -16,7 +17,13 @@ function Dropdown({ items, history }) {
           <span className="message">Your cart is empty!</span>
         )}
       </div>
-      <Button onClick={() => history.push("/checkout")}>GO TO CHECKOUT</Button>
+      <Button
+        onClick={() => {
+          toggleHiddenState();
+          history.push("/checkout");
+        }}>
+        GO TO CHECKOUT
+      </Button>
     </div>
   );
 }
@@ -24,5 +31,13 @@ function Dropdown({ items, history }) {
 const mapStateToProps = state => ({
   items: getItems(state)
 });
+const mapDispatchToProps = dispatch => ({
+  toggleHiddenState: () => dispatch(toggleHiddenState())
+});
 
-export default withRouter(connect(mapStateToProps)(Dropdown));
+export default withRouter(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(Dropdown)
+);
