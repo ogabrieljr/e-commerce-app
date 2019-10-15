@@ -3,6 +3,7 @@ import { ReactComponent as Icon } from "../../assets/cart icon.svg";
 import "./style.scss";
 import { connect } from "react-redux";
 import { toggleCartState } from "../../redux/cart/cartActions";
+import { itemCount } from "../../redux/cart/cartSelectors";
 
 function CartIcon({ toggleCartState, count }) {
   return (
@@ -18,9 +19,7 @@ const mapDispatchToProps = dispatch => ({
 });
 
 const mapStateToProps = state => ({
-  count: state.cartReducer.items.reduce((acc, item) => {
-    return acc + item.quantity;
-  }, 0)
+  count: itemCount(state)
 });
 
 export default connect(

@@ -4,6 +4,7 @@ import "./style.scss";
 import { connect } from "react-redux";
 import CartItem from "../cart item/CartItem";
 import { withRouter } from "react-router-dom";
+import { getItems } from "../../redux/cart/cartSelectors";
 
 function Dropdown({ items, history }) {
   return (
@@ -21,7 +22,7 @@ function Dropdown({ items, history }) {
 }
 
 const mapStateToProps = state => ({
-  items: state.cartReducer.items
+  items: getItems(state)
 });
 
 export default withRouter(connect(mapStateToProps)(Dropdown));
