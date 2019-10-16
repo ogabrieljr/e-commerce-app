@@ -10,7 +10,7 @@ import { getCurrentUser } from "../../redux/user/userSelector";
 import { getHiddenState } from "../../redux/cart/cartSelectors";
 import { createStructuredSelector } from "reselect";
 
-function Header({ currentUser, hidden }) {
+function Header({ getCurrentUser, getHiddenState }) {
   return (
     <div className="header">
       <Link className="logo-container" to="/">
@@ -23,7 +23,7 @@ function Header({ currentUser, hidden }) {
         <Link className="option" to="/contact">
           CONTACT
         </Link>
-        {currentUser ? (
+        {getCurrentUser ? (
           <div className="option" onClick={() => auth.signOut()}>
             SIGN OUT
           </div>
@@ -34,14 +34,14 @@ function Header({ currentUser, hidden }) {
         )}
         <CartIcon />
       </div>
-      {hidden ? null : <Dropdown />}
+      {getHiddenState ? null : <Dropdown />}
     </div>
   );
 }
 
 const mapStateToProps = createStructuredSelector({
-  currentUser: getCurrentUser,
-  hidden: getHiddenState
+  getCurrentUser,
+  getHiddenState
 });
 
 export default connect(mapStateToProps)(Header);
