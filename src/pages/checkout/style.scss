@@ -1,0 +1,27 @@
+.checkout-page {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+
+  .checkout-header {
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid darkgrey;
+
+    .header-block {
+      width: 100%;
+
+      &:last-child {
+        width: 20%;
+      }
+    }
+  }
+
+  .total {
+    font-size: 35px;
+    margin-top: 30px;
+    margin-left: auto;
+  }
+}
