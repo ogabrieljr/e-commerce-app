@@ -1,9 +1,9 @@
 import React from "react";
 import "./style.scss";
 import { connect } from "react-redux";
-import { removeItem } from "../../redux/cart/cartActions";
+import { clearItem } from "../../redux/cart/cartActions";
 
-function CheckoutItem({ item, removeItem }) {
+function CheckoutItem({ item, clearItem }) {
   const { name, imageUrl, price, quantity } = item;
   return (
     <div className="checkout-item">
@@ -17,7 +17,7 @@ function CheckoutItem({ item, removeItem }) {
         <div className="arrow">&#10095;</div>
       </span>
       <span className="price">{price}</span>
-      <div className="remove-button" onClick={() => removeItem(item)}>
+      <div className="remove-button" onClick={() => clearItem(item)}>
         &#10005;
       </div>
     </div>
@@ -25,7 +25,7 @@ function CheckoutItem({ item, removeItem }) {
 }
 
 const mapDispatchToProps = dispatch => ({
-  removeItem: item => dispatch(removeItem(item))
+  clearItem: item => dispatch(clearItem(item))
 });
 
 export default connect(
