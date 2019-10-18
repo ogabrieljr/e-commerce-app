@@ -3,7 +3,7 @@ import userReducer from "./user/userReducer";
 import cartReducer from "./cart/cartReducer";
 // import logger from "redux-logger";
 import { persistStore, persistReducer } from "redux-persist";
-import storage from "redux-persist/lib/storage"; // defaults to localStorage for web
+import storage from "redux-persist/lib/storage";
 
 const persistConfig = {
   key: "root",
