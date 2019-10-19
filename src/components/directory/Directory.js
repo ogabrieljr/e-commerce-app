@@ -2,6 +2,7 @@ import React from "react";
 import MenuItem from "../menu item/MenuItem";
 import "./style.css";
 import { connect } from "react-redux";
+import { geSections } from "../../redux/directory/directorySelectors";
 
 function Directory({ directory }) {
   return (
@@ -14,6 +15,6 @@ function Directory({ directory }) {
 }
 
 const mapStateToProps = state => ({
-  directory: state.directoryReducer.sections
+  directory: geSections(state)
 });
 export default connect(mapStateToProps)(Directory);
