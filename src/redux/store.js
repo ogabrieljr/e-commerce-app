@@ -4,13 +4,14 @@ import cartReducer from "./cart/cartReducer";
 // import logger from "redux-logger";
 import { persistStore, persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
+import shopReducer from "./shop/shopReducer";
 
 const persistConfig = {
   key: "root",
   storage
 };
 
-const rootReducer = combineReducers({ userReducer, cartReducer });
+const rootReducer = combineReducers({ userReducer, cartReducer, shopReducer });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
