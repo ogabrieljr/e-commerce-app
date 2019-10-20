@@ -9,7 +9,8 @@ import directoryReducer from "./directory/directoryReducer";
 
 const persistConfig = {
   key: "root",
-  storage
+  storage,
+  whitelist:["cartReducer"]
 };
 
 const rootReducer = combineReducers({
