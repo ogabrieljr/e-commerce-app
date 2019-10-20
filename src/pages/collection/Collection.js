@@ -9,7 +9,6 @@ function Collection({ getShopItems, match }) {
     collection => collection.title.toLowerCase() === match.params.collectionid
   );
   const { title, items } = item;
-  console.log(items);
   return (
     <div className="collection-page">
       <h2 className="title">{title}</h2>
