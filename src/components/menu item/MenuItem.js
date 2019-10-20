@@ -2,9 +2,9 @@ import React from "react";
 import { withRouter } from "react-router-dom";
 import "./style.scss";
 
-export default withRouter(function MenuItem({ title, imageUrl, match, history, link }) {
+function MenuItem({ title, imageUrl, match, history }) {
   return (
-    <div className="menu-item" onClick={() => history.push(`${match.url}${link}`)}>
+    <div className="menu-item" onClick={() => history.push(`${match.url}shop/${title}`)}>
       <div className="background-image" style={{ backgroundImage: `url(${imageUrl})` }} />
       <div className="content">
         <h1>{title.toUpperCase()}</h1>
@@ -12,4 +12,6 @@ export default withRouter(function MenuItem({ title, imageUrl, match, history, l
       </div>
     </div>
   );
-});
+}
+
+export default withRouter(MenuItem);
