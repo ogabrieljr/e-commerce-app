@@ -1,13 +1,12 @@
 import React from "react";
 import PreviewCollection from "../preview collection/PreviewCollection";
 import { connect } from "react-redux";
+import { collectionValues } from "../../redux/shop/shopSelector";
 
 function CollectionOverview({ collections }) {
-  const collectionValues = Object.values(collections)
-  console.log(collectionValues)
   return (
     <div>
-      {collectionValues.map(({ id, ...otherProps }) => (
+      {collections.map(({ id, ...otherProps }) => (
         <PreviewCollection key={id} {...otherProps} />
       ))}
     </div>
@@ -15,7 +14,7 @@ function CollectionOverview({ collections }) {
 }
 
 const mapStateToProps = state => ({
-  collections: state.shopReducer.collections
+  collections: collectionValues(state)
 });
 
 export default connect(mapStateToProps)(CollectionOverview);
