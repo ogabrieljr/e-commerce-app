@@ -1,12 +1,12 @@
 import React from "react";
 import { connect } from "react-redux";
-import { getShopItems } from "../../redux/shop/shopSelector";
+import { getShopCollections } from "../../redux/shop/shopSelector";
 import CollectionItem from "../../components/collection item/CollectionItem";
 import "./style.scss";
 
-function Collection({ getShopItems, match }) {
-  const item = getShopItems.find(
-    collection => collection.title.toLowerCase() === match.params.collectionid
+function Collection({ getShopCollections, match }) {
+  const item = getShopCollections.find(
+    collection => collection.routeName === match.params.collectionid
   );
   const { title, items } = item;
   return (
@@ -22,7 +22,7 @@ function Collection({ getShopItems, match }) {
 }
 
 const mapStateToProps = state => ({
-  getShopItems: getShopItems(state)
+  getShopCollections: getShopCollections(state)
 });
 
 export default connect(mapStateToProps)(Collection);

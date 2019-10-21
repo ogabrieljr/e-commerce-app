@@ -1,12 +1,12 @@
 import React from "react";
 import PreviewCollection from "../preview collection/PreviewCollection";
 import { connect } from "react-redux";
-import { getShopItems } from "../../redux/shop/shopSelector";
+import { getShopCollections } from "../../redux/shop/shopSelector";
 
-function CollectionOverview({ shopItems }) {
+function CollectionOverview({ collections }) {
   return (
     <div>
-      {shopItems.map(({ id, ...otherProps }) => (
+      {collections.map(({ id, ...otherProps }) => (
         <PreviewCollection key={id} {...otherProps} />
       ))}
     </div>
@@ -14,7 +14,7 @@ function CollectionOverview({ shopItems }) {
 }
 
 const mapStateToProps = state => ({
-  shopItems: getShopItems(state)
+  collections: getShopCollections(state)
 });
 
 export default connect(mapStateToProps)(CollectionOverview);
