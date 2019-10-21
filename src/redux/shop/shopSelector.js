@@ -11,3 +11,9 @@ export const collectionValues = createSelector(
   [getShopCollections],
   collections => Object.values(collections)
 );
+
+export const selectCollection = params =>
+  createSelector(
+    [getShopCollections],
+    collections => collections[params]
+  );
