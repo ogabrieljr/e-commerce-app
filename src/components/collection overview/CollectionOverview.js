@@ -1,15 +1,15 @@
 import React from "react";
 import PreviewCollection from "../preview collection/PreviewCollection";
 import { connect } from "react-redux";
-import { getShopCollections } from "../../redux/shop/shopSelector";
 
 function CollectionOverview({ collections }) {
-  console.log(collections)
+  const collectionValues = Object.values(collections)
+  console.log(collectionValues)
   return (
     <div>
-      {/* {collections.map(({ id, ...otherProps }) => (
+      {collectionValues.map(({ id, ...otherProps }) => (
         <PreviewCollection key={id} {...otherProps} />
-      ))} */}
+      ))}
     </div>
   );
 }
