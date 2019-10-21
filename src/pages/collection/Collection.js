@@ -5,10 +5,7 @@ import CollectionItem from "../../components/collection item/CollectionItem";
 import "./style.scss";
 
 function Collection({ getShopCollections, match }) {
-  const item = getShopCollections.find(
-    collection => collection.routeName === match.params.collectionid
-  );
-  const { title, items } = item;
+  const { title, items } = getShopCollections[match.params.collectionid];
   return (
     <div className="collection-page">
       <h2 className="title">{title}</h2>
