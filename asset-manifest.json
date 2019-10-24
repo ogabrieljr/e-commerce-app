@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/gh-pages/static/css/main.19155961.chunk.css",
+    "main.js": "/gh-pages/static/js/main.5715a482.chunk.js",
+    "main.js.map": "/gh-pages/static/js/main.5715a482.chunk.js.map",
+    "runtime-main.js": "/gh-pages/static/js/runtime-main.96fc504b.js",
+    "runtime-main.js.map": "/gh-pages/static/js/runtime-main.96fc504b.js.map",
+    "static/js/2.b220d27b.chunk.js": "/gh-pages/static/js/2.b220d27b.chunk.js",
+    "static/js/2.b220d27b.chunk.js.map": "/gh-pages/static/js/2.b220d27b.chunk.js.map",
+    "index.html": "/gh-pages/index.html",
+    "precache-manifest.d2f7e9bf254872b4d66c3468098c7ba3.js": "/gh-pages/precache-manifest.d2f7e9bf254872b4d66c3468098c7ba3.js",
+    "service-worker.js": "/gh-pages/service-worker.js",
+    "static/css/main.19155961.chunk.css.map": "/gh-pages/static/css/main.19155961.chunk.css.map",
+    "static/media/cart icon.30f07071.svg": "/gh-pages/static/media/cart icon.30f07071.svg",
+    "static/media/crown.19ef7b17.svg": "/gh-pages/static/media/crown.19ef7b17.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.96fc504b.js",
+    "static/js/2.b220d27b.chunk.js",
+    "static/css/main.19155961.chunk.css",
+    "static/js/main.5715a482.chunk.js"
+  ]
+}
