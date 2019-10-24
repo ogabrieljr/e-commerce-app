@@ -17,7 +17,6 @@ export default function stripeButton({ totalPrice }) {
         billingAddress
         shippingAddress
         amount={totalPrice * 100}
-        image="https://svgshare.com/i/CUz.svg"
         currency="USD"
       />
     </div>
