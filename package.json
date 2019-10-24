@@ -2,7 +2,7 @@
   "name": "e-commerce-crw",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://whatisthenote.github.io/e-commerce-crw",
+  "homepage": "https://whatisthenote.github.io",
   "dependencies": {
     "firebase": "^7.2.0",
     "node-sass": "^4.12.0",
