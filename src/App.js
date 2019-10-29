@@ -5,28 +5,16 @@ import Homepage from "./pages/homepage/Homepage";
 import ShopPage from "./pages/shop page/ShopPage";
 import Header from "./components/header/Header";
 import Form from "./pages/form/Form";
-import {
-  auth,
-  createUserProfileDocument,
-  addCollectionToFirebase
-} from "./firebase/Firebase";
+import { auth, createUserProfileDocument } from "./firebase/Firebase";
 import { connect } from "react-redux";
 import { setCurrentUser } from "./redux/user/userActions";
 import Checkout from "./pages/checkout/Checkout";
 import { getCurrentUser } from "./redux/user/userSelector";
-import { collectionValues } from "./redux/shop/shopSelector";
 
 class App extends Component {
   unsubscribeFromAuth = null;
 
   componentDidMount() {
-    const collectionToFirebase = this.props.collectionValues.map(item => ({
-      title: item.title,
-      items: item.items
-    }));
-
-    addCollectionToFirebase("collection", collectionToFirebase);
-
     this.unsubscribeFromAuth = auth.onAuthStateChanged(async currentUser => {
       if (currentUser) {
         const userRef = await createUserProfileDocument(currentUser);
@@ -65,8 +53,7 @@ class App extends Component {
 }
 
 const mapStateToProps = state => ({
-  currentUser: getCurrentUser(state),
-  collectionValues: collectionValues(state)
+  currentUser: getCurrentUser(state)
 });
 
 const mapDispatchToProps = dispatch => ({
