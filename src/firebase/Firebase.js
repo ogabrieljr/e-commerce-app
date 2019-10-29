@@ -12,6 +12,7 @@ const firebaseConfig = {
   appId: "1:1032346930752:web:7170dfc52fef21bc9499a5",
   measurementId: "G-H3GRMKNR0T"
 };
+firebase.initializeApp(firebaseConfig);
 
 export const createUserProfileDocument = async (userAuth, additionalData) => {
   if (!userAuth) return;
@@ -36,7 +37,15 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
   return userRef;
 };
 
-firebase.initializeApp(firebaseConfig);
+export const addCollectionToFirebase = (collectionKey, document) => {
+  const collectionRef = firestore.collection(collectionKey);
+  const batch = firestore.batch();
+  document.forEach(item => {
+    const docRef = collectionRef.doc();
+    batch.set(docRef, item);
+  });
+  batch.commit();
+};
 
 export const auth = firebase.auth();
 export const firestore = firebase.firestore();
