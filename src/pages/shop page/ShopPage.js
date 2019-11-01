@@ -5,6 +5,7 @@ import Collection from "../collection/Collection";
 import { firestore } from "../../firebase/Firebase";
 import { connect } from "react-redux";
 import { updateCollections } from "../../redux/shop/shopActions";
+import Spinner from "../../components/spinner/Spinner";
 
 class ShopPage extends Component {
   componentDidMount() {
@@ -31,8 +32,14 @@ class ShopPage extends Component {
     const { match } = this.props;
     return (
       <div>
-        <Route exact path={`${match.url}`} component={CollectionOverview} />
-        <Route path={`${match.url}/:collectionid`} component={Collection} />
+        {this.props.collections === "" ? (
+          <Spinner />
+        ) : (
+          <div>
+            <Route exact path={`${match.url}`} component={CollectionOverview} />
+            <Route path={`${match.url}/:collectionid`} component={Collection} />
+          </div>
+        )}
       </div>
     );
   }
@@ -42,7 +49,11 @@ const mapDispatchToProps = dispatch => ({
   updateCollections: collections => dispatch(updateCollections(collections))
 });
 
+const state = state => ({
+  collections: state.shopReducer.collections
+});
+
 export default connect(
-  null,
+  state,
   mapDispatchToProps
 )(ShopPage);
