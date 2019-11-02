@@ -2,37 +2,21 @@ import React, { Component } from "react";
 import CollectionOverview from "../../components/collection overview/CollectionOverview";
 import { Route } from "react-router-dom";
 import Collection from "../collection/Collection";
-import { firestore } from "../../firebase/Firebase";
 import { connect } from "react-redux";
-import { updateCollections } from "../../redux/shop/shopActions";
+import {  fetchCollectionsAsync } from "../../redux/shop/shopActions";
 import Spinner from "../../components/spinner/Spinner";
+import {getShopCollections} from "../../redux/shop/shopSelector"
 
 class ShopPage extends Component {
   componentDidMount() {
-    const collectionRef = firestore.collection("collections");
-    collectionRef.get().then(items => {
-      const mappedItems = items.docs.map(item => {
-        const { title, items } = item.data();
-        return {
-          title,
-          items,
-          id: item.id,
-          routeName: encodeURI(title.toLowerCase())
-        };
-      });
-      const reducedItems = mappedItems.reduce((acc, items) => {
-        acc[items.title.toLowerCase()] = items;
-        return acc;
-      }, {});
-      this.props.updateCollections(reducedItems);
-    });
+    this.props.fetchCollectionsAsync();
   }
 
   render() {
     const { match } = this.props;
     return (
       <div>
-        {this.props.collections === "" ? (
+        {this.props.getShopCollections === "" ? (
           <Spinner />
         ) : (
           <div>
@@ -46,11 +30,11 @@ class ShopPage extends Component {
 }
 
 const mapDispatchToProps = dispatch => ({
-  updateCollections: collections => dispatch(updateCollections(collections))
+  fetchCollectionsAsync: () => dispatch(fetchCollectionsAsync())
 });
 
 const state = state => ({
-  collections: state.shopReducer.collections
+  getShopCollections: getShopCollections(state)
 });
 
 export default connect(

@@ -6,6 +6,7 @@ import { persistStore, persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import shopReducer from "./shop/shopReducer";
 import directoryReducer from "./directory/directoryReducer";
+import thunk from "redux-thunk"
 
 const persistConfig = {
   key: "root",
@@ -22,7 +23,7 @@ const rootReducer = combineReducers({
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
-const middlewares = [];
+const middlewares = [thunk];
 
 if (process.env.NODE_ENV === "development") {
   middlewares.push(logger);
