@@ -10,10 +10,11 @@ export const fetchCollectionsFail = message => ({
   payload: message
 });
 
-export const fetchCollectionsAsync = () => {
-  return dispatch => {
-    const collectionRef = firestore.collection("collections");
-    collectionRef.get().then(items => {
+export const fetchCollectionsAsync = () => dispatch => {
+  const collectionRef = firestore.collection("collections");
+  collectionRef
+    .get()
+    .then(items => {
       const mappedItems = items.docs.map(item => {
         const { title, items } = item.data();
         return {
@@ -28,6 +29,6 @@ export const fetchCollectionsAsync = () => {
         return acc;
       }, {});
       dispatch(fetchCollectionsSuccess(reducedItems));
-    });
-  };
+    })
+    .catch(err => dispatch(fetchCollectionsFail(err)));
 };
