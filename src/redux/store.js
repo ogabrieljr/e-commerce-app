@@ -6,7 +6,10 @@ import { persistStore, persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import shopReducer from "./shop/shopReducer";
 import directoryReducer from "./directory/directoryReducer";
-import thunk from "redux-thunk"
+import createSagaMiddleware from "redux-saga"
+import { fetchStart } from "./shop/shopSagas";
+
+const sagaMiddleware = createSagaMiddleware()
 
 const persistConfig = {
   key: "root",
@@ -23,12 +26,14 @@ const rootReducer = combineReducers({
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
-const middlewares = [thunk];
+const middlewares = [sagaMiddleware];
 
 if (process.env.NODE_ENV === "development") {
   middlewares.push(logger);
 }
 
 export const store = createStore(persistedReducer, applyMiddleware(...middlewares));
+
+sagaMiddleware.run(fetchStart)
 
 export const persistor = persistStore(store);
