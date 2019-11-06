@@ -11,6 +11,3 @@ export const fetchCollectionsFail = message => ({
   type: "FETCH_COLLECTIONS_FAIL",
   payload: message
 });
-
-export const fetchCollectionsAsync = () => dispatch => {
-};
