@@ -24,7 +24,7 @@ function Header({ getCurrentUser, getHiddenState }) {
         <OptionLink to="/shop">SHOP</OptionLink>
         <OptionLink to="/contact">CONTACT</OptionLink>
         {getCurrentUser ? (
-          <OptionLink className="option" onClick={() => auth.signOut()}>
+          <OptionLink to="/" className="option" onClick={() => auth.signOut()}>
             SIGN OUT
           </OptionLink>
         ) : (
