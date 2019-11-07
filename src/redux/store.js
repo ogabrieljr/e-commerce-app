@@ -6,10 +6,10 @@ import { persistStore, persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import shopReducer from "./shop/shopReducer";
 import directoryReducer from "./directory/directoryReducer";
-import createSagaMiddleware from "redux-saga"
-import { fetchStart } from "./shop/shopSagas";
+import createSagaMiddleware from "redux-saga";
+import rootSaga from "./rootSaga";
 
-const sagaMiddleware = createSagaMiddleware()
+const sagaMiddleware = createSagaMiddleware();
 
 const persistConfig = {
   key: "root",
@@ -34,6 +34,6 @@ if (process.env.NODE_ENV === "development") {
 
 export const store = createStore(persistedReducer, applyMiddleware(...middlewares));
 
-sagaMiddleware.run(fetchStart)
+sagaMiddleware.run(rootSaga);
 
 export const persistor = persistStore(store);
