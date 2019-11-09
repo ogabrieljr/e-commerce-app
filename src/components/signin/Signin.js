@@ -2,9 +2,8 @@ import React, { Component } from "react";
 import Input from "../form input/Input";
 import "./style.scss";
 import Button from "../button/button";
-import { auth } from "../../firebase/Firebase";
 import { connect } from "react-redux";
-import { googleSignInStart } from "../../redux/user/userActions";
+import { googleSignInStart, emailSignInStart } from "../../redux/user/userActions";
 
 class Signin extends Component {
   constructor(props) {
@@ -20,19 +19,8 @@ class Signin extends Component {
     this.setState({ [name]: value });
   };
 
-  submit = async event => {
-    event.preventDefault();
-    const { email, password } = this.state;
-    try {
-      await auth.signInWithEmailAndPassword(email, password);
-      this.setState({ email: "", password: "" });
-    } catch (error) {
-      console.log(error);
-    }
-    this.setState({ email: "", password: "" });
-  };
-
   render() {
+    const { email, password } = this.state;
     return (
       <div className="sign-in">
         <h2>Already have an account?</h2>
@@ -55,14 +43,15 @@ class Signin extends Component {
             required
           />
           <div className="buttons">
-            <Button onClick={this.submit} type="submit">
+            <Button
+              onClick={() => this.props.emailSignInStart({ email, password })}
+              type="submit">
               Sign in
             </Button>
             <Button signedIn onClick={this.props.googleSignInStart}>
               Sign in with Google
             </Button>
           </div>
-          {console.log(this.props.currentUser)}
         </div>
       </div>
     );
@@ -70,14 +59,8 @@ class Signin extends Component {
 }
 
 const mapDispatchToProps = dispatch => ({
-  googleSignInStart: () => dispatch(googleSignInStart())
+  googleSignInStart: () => dispatch(googleSignInStart()),
+  emailSignInStart: emailAndPassword => dispatch(emailSignInStart(emailAndPassword))
 });
 
-const state = state => ({
-  currentUser: state.userReducer.currentUser
-});
-
-export default connect(
-  state,
-  mapDispatchToProps
-)(Signin);
+export default connect(mapDispatchToProps)(Signin);
