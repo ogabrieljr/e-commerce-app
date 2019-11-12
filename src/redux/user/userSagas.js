@@ -1,5 +1,9 @@
 import { takeLatest, put, all } from "redux-saga/effects";
-import { auth, googleProvider, createUserProfileDocument } from "../../firebase/Firebase";
+import {
+  auth,
+  googleProvider,
+  createUserProfileDocument
+} from "../../firebase/Firebase";
 import { signInSuccess, signInFail, signOutSuccess } from "./userActions";
 
 function* getUserAuth(userAuth) {
@@ -42,3 +46,22 @@ function* SignOutUser() {
 export function* userSagas() {
   yield all([googleStart(), emailSignInStart(), SignOut()]);
 }
+
+// export const getCurrentUser = () => {
+//   return new Promise((resolve, reject) => {
+//     const unsubscribe = auth.onAuthStateChanged(userAuth => {
+//       unsubscribe();
+//       resolve(userAuth);
+//     }, reject);
+//   });
+// };
+
+// function* isUserAuthenticated() {
+//   try {
+//     const userAuth = yield getCurrentUser();
+//     if (!userAuth) return;
+//     yield getSnapshotFromUserAuth(userAuth);
+//   } catch (error) {
+//     yield put(signInFail(error));
+//   }
+// }
