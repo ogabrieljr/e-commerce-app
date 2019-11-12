@@ -1,5 +1,5 @@
 const INITIAL_STATE = {
-  currentUser: null,
+  currentUser: "",
   errorMessage: ""
 };
 
@@ -14,6 +14,12 @@ const userReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         errorMessage: action.payload
+      };
+    case "SIGN_OUT_SUCCESS":
+      return {
+        ...state,
+        errorMessage: "",
+        currentUser: ""
       };
     default:
       return state;
