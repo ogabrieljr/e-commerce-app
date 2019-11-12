@@ -13,8 +13,7 @@ const sagaMiddleware = createSagaMiddleware();
 
 const persistConfig = {
   key: "root",
-  storage,
-  whitelist: ["cartReducer"]
+  storage
 };
 
 const rootReducer = combineReducers({
