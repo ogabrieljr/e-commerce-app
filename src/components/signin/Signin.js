@@ -31,7 +31,7 @@ class Signin extends Component {
             name="email"
             type="email"
             value={this.state.email}
-            label="email"
+            label="Email"
             required
           />
           <Input
@@ -39,7 +39,7 @@ class Signin extends Component {
             name="password"
             type="password"
             value={this.state.password}
-            label="password"
+            label="Password"
             required
           />
           <div className="buttons">

@@ -32,7 +32,7 @@ export default class Signup extends Component {
         password: "",
         confirmPassword: ""
       });
-     } catch (error) {
+    } catch (error) {
       console.log(error);
     }
   };
@@ -53,7 +53,7 @@ export default class Signup extends Component {
             type="text"
             name="displayName"
             value={displayName}
-            label="Display name"
+            label="Name"
             onChange={this.change}
             required
           />
@@ -77,7 +77,7 @@ export default class Signup extends Component {
             type="password"
             name="confirmPassword"
             value={confirmPassword}
-            label="Password"
+            label="Confirm password"
             onChange={this.change}
             required
           />
