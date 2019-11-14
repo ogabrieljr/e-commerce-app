@@ -5,7 +5,7 @@ import Button from "../button/button";
 import { connect } from "react-redux";
 import { googleSignInStart, emailSignInStart } from "../../redux/user/userActions";
 
-class Signin extends Component {
+class SignIn extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -63,4 +63,4 @@ const mapDispatchToProps = dispatch => ({
   emailSignInStart: emailAndPassword => dispatch(emailSignInStart(emailAndPassword))
 });
 
-export default connect(null, mapDispatchToProps)(Signin);
+export default connect(null, mapDispatchToProps)(SignIn);

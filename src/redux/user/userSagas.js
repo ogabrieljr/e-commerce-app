@@ -9,14 +9,15 @@ import { signInSuccess, signInFail, signOutSuccess } from "./userActions";
 function* getUserAuth(userAuth) {
   try {
     const userRef = yield createUserProfileDocument(userAuth);
-    const snapshot = yield userRef.get();
-    yield put(signInSuccess({ id: snapshot.id, ...snapshot.data() }));
+    const snapShot = yield userRef.get();
+    yield put(signInSuccess({ id: snapShot.id, ...snapShot.data() }));
+    //   currentUser: { id: "ID", createdAt: {…}, displayName: "DN", email: "EM" }
   } catch (error) {
     put(signInFail(error));
   }
 }
 
-function* googleStart() {
+function* onGoogleSignInStart() {
   yield takeLatest("GOOGLE_SIGN_IN_START", signInWithGoogle);
 }
 
@@ -25,26 +26,27 @@ function* signInWithGoogle() {
   yield getUserAuth(user);
 }
 
-function* emailSignInStart() {
+function* onEmailSignInStart() {
   yield takeLatest("EMAIL_SIGN_IN_START", signWithWithEmail);
 }
 
 function* signWithWithEmail({ payload: { email, password } }) {
+  // Object { type: "EMAIL_SIGN_IN_START", payload: { email: "EMAIL", password: "PASSWORD" } }
   const { user } = yield auth.signInWithEmailAndPassword(email, password);
   yield getUserAuth(user);
 }
 
-function* SignOut() {
-  yield takeLatest("SIGN_OUT_START", SignOutUser);
+function* onSignOut() {
+  yield takeLatest("SIGN_OUT_START", signOutUser);
 }
 
-function* SignOutUser() {
+function* signOutUser() {
   yield auth.signOut();
   yield put(signOutSuccess());
 }
 
 export function* userSagas() {
-  yield all([googleStart(), emailSignInStart(), SignOut()]);
+  yield all([onGoogleSignInStart(), onEmailSignInStart(), onSignOut()]);
 }
 
 // export const getCurrentUser = () => {

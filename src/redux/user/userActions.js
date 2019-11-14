@@ -1,6 +1,7 @@
 export const signInSuccess = user => ({
   type: "SIGN_IN_SUCCESS",
   payload: user
+  // { id: "ID", createdAt: {…}, displayName: "DN", email: "EM" }
 });
 
 export const signInFail = message => ({

@@ -2,15 +2,15 @@ import { takeEvery, put } from "redux-saga/effects";
 import { firestore } from "../../firebase/Firebase";
 import { fetchCollectionsSuccess, fetchCollectionsFail } from "./shopActions";
 
-export function* fetchStart() {
+export function* onFetchStart() {
   yield takeEvery("FETCH_COLLECTIONS_START", fetchAsync);
 }
 
 function* fetchAsync() {
   try {
     const collectionRef = firestore.collection("collections");
-    const snapshot = yield collectionRef.get();
-    const mappedItems = snapshot.docs.map(item => {
+    const snapShot = yield collectionRef.get();
+    const mappedItems = snapShot.docs.map(item => {
       const { title, items } = item.data();
       return {
         title,
