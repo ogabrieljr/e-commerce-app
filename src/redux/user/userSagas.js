@@ -24,8 +24,12 @@ function* onGoogleSignInStart() {
 }
 
 function* signInWithGoogle() {
-  const { user } = yield auth.signInWithPopup(googleProvider);
-  yield getUserAuth(user);
+  try {
+    const { user } = yield auth.signInWithPopup(googleProvider);
+    yield getUserAuth(user);
+  } catch (error) {
+    yield put(signInFail(error));
+  }
 }
 
 function* onEmailSignInStart() {
@@ -33,9 +37,14 @@ function* onEmailSignInStart() {
 }
 
 function* signWithWithEmail({ payload: { email, password } }) {
-  // Object { type: "EMAIL_SIGN_IN_START", payload: { email: "EMAIL", password: "PASSWORD" } }
-  const { user } = yield auth.signInWithEmailAndPassword(email, password);
-  yield getUserAuth(user);
+  try {
+    // Object { type: "EMAIL_SIGN_IN_START", payload: { email: "EMAIL", password: "PASSWORD" } }
+    const { user } = yield auth.signInWithEmailAndPassword(email, password);
+    yield getUserAuth(user);
+  } catch (error) {
+    console.log(error);
+    yield put(signInFail(error));
+  }
 }
 
 function* onSignOut() {
@@ -52,8 +61,12 @@ function* onSignUpStart() {
 }
 
 function* signUp({ payload: { email, password, displayName } }) {
-  const { user } = yield auth.createUserWithEmailAndPassword(email, password);
-  yield getUserAuth(user, { displayName });
+  try {
+    const { user } = yield auth.createUserWithEmailAndPassword(email, password);
+    yield getUserAuth(user, { displayName });
+  } catch (error) {
+    yield put(signInFail(error));
+  }
 }
 
 export function* userSagas() {
