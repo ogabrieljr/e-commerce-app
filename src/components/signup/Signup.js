@@ -3,8 +3,10 @@ import Input from "../form input/Input";
 import Button from "../button/button";
 import { auth, createUserProfileDocument } from "../../firebase/Firebase";
 import "./style.scss";
+import { connect } from "react-redux";
+import { signUpStart } from "../../redux/user/userActions";
 
-export default class Signup extends Component {
+class Signup extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -22,19 +24,7 @@ export default class Signup extends Component {
       alert("password don't match");
       return;
     }
-
-    try {
-      const { user } = await auth.createUserWithEmailAndPassword(email, password);
-      await createUserProfileDocument(user, { displayName });
-      this.setState({
-        displayName: "",
-        email: "",
-        password: "",
-        confirmPassword: ""
-      });
-    } catch (error) {
-      console.log(error);
-    }
+    this.props.signUpStart({ email, password, displayName });
   };
 
   change = event => {
@@ -87,3 +77,9 @@ export default class Signup extends Component {
     );
   }
 }
+
+const mapDispatchToProps = dispatch => ({
+  signUpStart: userCredentials => dispatch(signUpStart(userCredentials))
+});
+
+export default connect(null, mapDispatchToProps)(Signup);

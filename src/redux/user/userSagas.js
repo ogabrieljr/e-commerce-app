@@ -6,9 +6,11 @@ import {
 } from "../../firebase/Firebase";
 import { signInSuccess, signInFail, signOutSuccess } from "./userActions";
 
-function* getUserAuth(userAuth) {
+function* getUserAuth(userAuth, additionalData) {
+  // Object { I: [], l: "AIzaSyAgqoA0UGTsg0z3aTNmh8-emhCR7et2cxY", m: "[DEFAULT]", o: "ecommerce-crwn.firebaseapp.com" }
+
   try {
-    const userRef = yield createUserProfileDocument(userAuth);
+    const userRef = yield createUserProfileDocument(userAuth, additionalData);
     const snapShot = yield userRef.get();
     yield put(signInSuccess({ id: snapShot.id, ...snapShot.data() }));
     //   currentUser: { id: "ID", createdAt: {…}, displayName: "DN", email: "EM" }
@@ -45,8 +47,22 @@ function* signOutUser() {
   yield put(signOutSuccess());
 }
 
+function* onSignUpStart() {
+  yield takeLatest("SIGN_UP_START", signUp);
+}
+
+function* signUp({ payload: { email, password, displayName } }) {
+  const { user } = yield auth.createUserWithEmailAndPassword(email, password);
+  yield getUserAuth(user, { displayName });
+}
+
 export function* userSagas() {
-  yield all([onGoogleSignInStart(), onEmailSignInStart(), onSignOut()]);
+  yield all([
+    onGoogleSignInStart(),
+    onEmailSignInStart(),
+    onSignOut(),
+    onSignUpStart()
+  ]);
 }
 
 // export const getCurrentUser = () => {

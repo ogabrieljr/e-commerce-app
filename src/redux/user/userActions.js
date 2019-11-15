@@ -25,3 +25,8 @@ export const signOutStart = () => ({
 export const signOutSuccess = () => ({
   type: "SIGN_OUT_SUCCESS"
 });
+
+export const signUpStart = userCredentials => ({
+  type: "SIGN_UP_START",
+  payload: userCredentials
+});
