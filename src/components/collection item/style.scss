@@ -21,8 +21,16 @@
     position: absolute;
     top: 255px;
     display: none;
+
+    @media screen and (max-width: 800px) {
+      display: block;
+      opacity: 0.9;
+      min-width: unset;
+      padding: unset;
+    }
   }
 
+  
   &:hover {
     .image {
       opacity: 0.8;
@@ -38,6 +46,20 @@
     height: 5%;
     display: flex;
     justify-content: space-between;
-    font-size: 18px;
+    font-size: 14px;
+  }
+
+  @media screen and (max-width: 800px) {
+    width: 40vw;
+
+    &:hover {
+      .image {
+        opacity: unset;
+      }
+      .custom-button {
+        opacity: unset;
+        display: block;
+      }
+    }
   }
 }

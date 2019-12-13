@@ -1,0 +1,19 @@
+.form {
+  width: 850px;
+  display: flex;
+  justify-content: space-between;
+  margin: 30px auto;
+
+  @media screen and (max-width: 800px) {
+    flex-direction: column;
+    padding: 10px;
+    width: 350px;
+    margin-left: -10px;
+    overflow: hidden;
+
+    .buttons {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}

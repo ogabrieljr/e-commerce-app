@@ -1,17 +1,18 @@
 import React from "react";
-import "./app.css";
 import { Route, Switch, Redirect } from "react-router-dom";
 import Homepage from "./pages/homepage/Homepage";
 import ShopPage from "./pages/shop page/ShopPage";
 import Header from "./components/header/Header";
-import Form from "./pages/form/Form";
+import Form from "./pages/sign in/Form";
 import { connect } from "react-redux";
 import Checkout from "./pages/checkout/Checkout";
 import { getCurrentUser } from "./redux/user/userSelector";
+import { GlobalStyle } from "./GlobalStyles";
 
 function App(props) {
   return (
     <div>
+      <GlobalStyle />
       <Header />
       <Switch>
         <Route exact path="/" component={Homepage} />

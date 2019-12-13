@@ -1,5 +1,5 @@
 .custom-button {
-  min-width: 100px;
+  min-width: 200px;
   width: auto;
   height: 50px;
   letter-spacing: 0.5px;
@@ -8,10 +8,13 @@
   background-color: black;
   color: white;
   text-transform: uppercase;
-  font-family: "Open Sans Condensed";
-  font-weight: bolder;
   border: none;
   cursor: pointer;
+  margin: 3px;
+
+  @media screen and (max-width: 800px) {
+    width: 100px;
+  }
 
   &:hover {
     background-color: white;

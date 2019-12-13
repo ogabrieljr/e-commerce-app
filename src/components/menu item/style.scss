@@ -30,8 +30,8 @@
   }
 
   .content {
-    height: 90px;
-    padding: 0 20px 20px;
+    height: 70px;
+    padding: 0 4vw;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -44,7 +44,7 @@
     .title {
       font-weight: bold;
       margin: 0 6px 0;
-      font-size: 22px;
+      font-size: 30px;
       color: #4a4a4a;
     }
 
@@ -52,5 +52,19 @@
       font-weight: lighter;
       font-size: 16px;
     }
+    @media screen and (max-width: 800px) {
+      width: 30vw;
+      .title {
+        font-size: 15px;
+      }
+      .subtitle {
+        font-weight: lighter;
+        font-size: 11px;
+      }
+    }
+  }
+
+  @media screen and (max-width: 800px) {
+    height: 200px;
   }
 }
