@@ -14,17 +14,29 @@
       height: 100%;
     }
   }
+
   .name,
   .quantity,
   .price {
     width: 25%;
     display: flex;
   }
+
+  @media screen and (max-width: 800px) {
+    font-size: 12px;
+    .price {
+      margin-right: 15px;
+    }
+    .quantity{
+      margin: 7px
+    }
+  }
+
   .arrow {
     cursor: pointer;
   }
   .value {
-    margin: 3px 10px;
+    margin: 0 10px;
   }
   .remove-button {
     padding-left: 12px;
