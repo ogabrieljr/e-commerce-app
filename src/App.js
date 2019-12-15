@@ -1,13 +1,15 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
-import Homepage from "./pages/homepage/Homepage";
-import ShopPage from "./pages/shop page/ShopPage";
 import Header from "./components/header/Header";
-import Form from "./pages/sign in/Form";
 import { connect } from "react-redux";
-import Checkout from "./pages/checkout/Checkout";
 import { getCurrentUser } from "./redux/user/userSelector";
 import { GlobalStyle } from "./GlobalStyles";
+import Spinner from "./components/spinner/Spinner";
+
+const Homepage = lazy(() => import("./pages/homepage/Homepage"));
+const ShopPage = lazy(() => import("./pages/shop page/ShopPage"));
+const Checkout = lazy(() => import("./pages/checkout/Checkout"));
+const Forms = lazy(() => import("./pages/sign in/Forms"));
 
 function App(props) {
   return (
@@ -15,13 +17,15 @@ function App(props) {
       <GlobalStyle />
       <Header />
       <Switch>
-        <Route exact path="/" component={Homepage} />
-        <Route path="/shop" component={ShopPage} />
-        <Route path="/checkout" component={Checkout} />
-        <Route
-          path="/signin"
-          render={() => (props.currentUser ? <Redirect to="/" /> : <Form />)}
-        />
+        <Suspense fallback={<Spinner />}>
+          <Route exact path="/" component={Homepage} />
+          <Route path="/shop" component={ShopPage} />
+          <Route path="/checkout" component={Checkout} />
+          <Route
+            path="/signin"
+            render={() => (props.currentUser ? <Redirect to="/" /> : <Forms />)}
+          />
+        </Suspense>
       </Switch>
     </div>
   );
