@@ -31,7 +31,7 @@
 
   .content {
     height: 70px;
-    padding: 0 4vw;
+    padding: 0 15px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -53,9 +53,9 @@
       font-size: 16px;
     }
     @media screen and (max-width: 800px) {
-      width: 30vw;
+      width: 25%;
       .title {
-        font-size: 15px;
+        font-size: 17px;
       }
       .subtitle {
         font-weight: lighter;
