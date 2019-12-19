@@ -13,16 +13,16 @@ function ShopPage({ fetchCollectionsStart, match, getShopCollections }) {
   }, [fetchCollectionsStart]);
 
   return (
-    <div>
+    <>
       {getShopCollections === "" ? (
         <Spinner />
       ) : (
-        <div>
+        <>
           <Route exact path={`${match.url}`} component={CollectionOverview} />
           <Route path={`${match.url}/:collectionid`} component={Collection} />
-        </div>
+        </>
       )}
-    </div>
+    </>
   );
 }
 

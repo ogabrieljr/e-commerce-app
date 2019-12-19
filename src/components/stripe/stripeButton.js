@@ -8,7 +8,7 @@ export default function stripeButton({ totalPrice }) {
   };
 
   return (
-    <div>
+    <>
       <StripeCheckout
         token={handleToken}
         name="Crown"
@@ -19,6 +19,6 @@ export default function stripeButton({ totalPrice }) {
         amount={totalPrice * 100}
         currency="USD"
       />
-    </div>
+    </>
   );
 }

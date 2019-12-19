@@ -14,7 +14,7 @@ const Forms = lazy(() => import("./pages/sign in/Forms"));
 
 function App(props) {
   return (
-    <div>
+    <>
       <GlobalStyle />
       <Header />
       <Switch>
@@ -30,7 +30,7 @@ function App(props) {
           </Suspense>
         </ErrorBoundary>
       </Switch>
-    </div>
+    </>
   );
 }
 

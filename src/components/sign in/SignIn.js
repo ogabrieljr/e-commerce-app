@@ -22,7 +22,7 @@ function SignIn(props) {
     <div className="sign-in">
       <h2>Already have an account?</h2>
       <span>Sign in</span>
-      <div>
+      <>
         <Input
           handleChange={handleChange}
           name="email"
@@ -49,7 +49,7 @@ function SignIn(props) {
             Sign in with Google
           </Button>
         </div>
-      </div>
+      </>
     </div>
   );
 }
