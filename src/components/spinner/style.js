@@ -9,22 +9,46 @@ export const SpinnerOverlay = styled.div`
 `;
 
 export const SpinnerContainer = styled.div`
-  display: inline-block;
-  width: 50px;
-  height: 50px;
-  border: 3px solid rgba(195, 195, 195, 0.6);
-  border-radius: 50%;
-  border-top-color: #636767;
-  animation: spin 1s ease-in-out infinite;
-  -webkit-animation: spin 1s ease-in-out infinite;
-  @keyframes spin {
-    to {
+  .loader,
+  .loader:after {
+    border-radius: 50%;
+    width: 10em;
+    height: 10em;
+  }
+  .loader {
+    width: 50px;
+    height: 50px;
+    margin: 60px auto;
+    position: relative;
+    text-indent: -9999em;
+    border-top: 3px solid #636767;
+    border-right: 3px solid #636767;
+    border-bottom: 3px solid #636767;
+    border-left: 3px solid rgba(195, 195, 195, 0.6);
+    -webkit-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-animation: load8 1.1s infinite linear;
+    animation: load8 1.1s infinite linear;
+  }
+  @-webkit-keyframes load8 {
+    0% {
+      -webkit-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+    100% {
       -webkit-transform: rotate(360deg);
+      transform: rotate(360deg);
     }
   }
-  @-webkit-keyframes spin {
-    to {
+  @keyframes load8 {
+    0% {
+      -webkit-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+    100% {
       -webkit-transform: rotate(360deg);
+      transform: rotate(360deg);
     }
   }
 `;

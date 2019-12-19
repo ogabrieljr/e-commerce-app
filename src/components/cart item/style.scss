@@ -6,6 +6,13 @@
     width: 30%;
   }
 
+  @media screen and (max-width: 800px) {
+    img {
+      height: 70px;
+      width: auto;
+    }
+  }
+
   .item-details {
     width: 70%;
     display: flex;

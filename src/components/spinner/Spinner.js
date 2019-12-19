@@ -4,7 +4,9 @@ import { SpinnerContainer, SpinnerOverlay } from "./style";
 const Spinner = () => {
   return (
     <SpinnerOverlay>
-      <SpinnerContainer />
+      <SpinnerContainer>
+        <div className="loader"></div>
+      </SpinnerContainer>
     </SpinnerOverlay>
   );
 };

@@ -5,11 +5,11 @@ import { collectionValues } from "../../redux/shop/shopSelector";
 
 function CollectionOverview({ collections }) {
   return (
-    <>
+    <div>
       {collections.map(({ id, ...otherProps }) => (
         <PreviewCollection key={id} {...otherProps} />
       ))}
-    </>
+    </div>
   );
 }
 
