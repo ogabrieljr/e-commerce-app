@@ -5,7 +5,7 @@ const Spinner = () => {
   return (
     <SpinnerOverlay>
       <SpinnerContainer>
-        <div className="loader"></div>
+        <div className="loader" />
       </SpinnerContainer>
     </SpinnerOverlay>
   );
