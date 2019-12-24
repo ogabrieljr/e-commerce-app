@@ -3,8 +3,11 @@ import "./style.scss";
 import Button from "../button/button";
 import { connect } from "react-redux";
 import { addItem } from "../../redux/cart/cartActions";
+import { getCurrentUser } from "../../redux/user/userSelector";
+import { createStructuredSelector } from "reselect";
+import { withRouter } from "react-router-dom";
 
-function CollectionItem({ item, addItem }) {
+function CollectionItem({ item, addItem, getCurrentUser, history }) {
   const { name, price, imageUrl } = item;
   return (
     <div className="collection-item">
@@ -18,9 +21,15 @@ function CollectionItem({ item, addItem }) {
         <span>{name}</span>
         <span>${price}</span>
       </div>
-      <Button onClick={() => addItem(item)} inverted>
-        ADD TO CART
-      </Button>
+      {getCurrentUser ? (
+        <Button onClick={() => addItem(item)} inverted>
+          ADD TO CART
+        </Button>
+      ) : (
+        <Button onClick={() => history.push("/signin")} inverted>
+          SIGN IN TO BUY
+        </Button>
+      )}
     </div>
   );
 }
@@ -29,4 +38,10 @@ const mapDispatchToProps = dispatch => ({
   addItem: item => dispatch(addItem(item))
 });
 
-export default connect(null, mapDispatchToProps)(CollectionItem);
+const mapStateToProps = createStructuredSelector({
+  getCurrentUser
+});
+
+export default withRouter(
+  connect(mapStateToProps, mapDispatchToProps)(CollectionItem)
+);
