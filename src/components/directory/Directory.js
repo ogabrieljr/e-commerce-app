@@ -17,4 +17,5 @@ function Directory({ directory }) {
 const mapStateToProps = state => ({
   directory: geSections(state)
 });
+
 export default connect(mapStateToProps)(Directory);

@@ -32,6 +32,10 @@ const cartReducer = (state = INITIAL_STATE, action) => {
         ...state,
         items: []
       };
+    case "FETCH_CART_ITEMS_START":
+      return { ...state };
+    case "FETCH_CART_ITEMS_SUCCESS":
+      return { ...state, items: action.payload };
     default:
       return state;
   }
