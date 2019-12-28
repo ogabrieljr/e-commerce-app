@@ -8,7 +8,7 @@ import { createStructuredSelector } from "reselect";
 function Homepage({ fetchCartItemsStart, getCurrentUser }) {
   useEffect(() => {
     if (getCurrentUser) fetchCartItemsStart();
-  }, [fetchCartItemsStart]);
+  }, [getCurrentUser, fetchCartItemsStart]);
   return <Directory />;
 }
 

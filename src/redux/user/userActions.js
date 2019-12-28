@@ -18,10 +18,6 @@ export const emailSignInStart = emailAndPassword => ({
   payload: emailAndPassword
 });
 
-export const signOutStart = () => ({
-  type: "SIGN_OUT_START"
-});
-
 export const signOutSuccess = () => ({
   type: "SIGN_OUT_SUCCESS"
 });

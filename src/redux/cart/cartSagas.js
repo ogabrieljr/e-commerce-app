@@ -1,9 +1,5 @@
 import { takeLatest, put, all, select } from "redux-saga/effects";
-import {
-  clearCart,
-  fetchCartItemsStart,
-  fetchCartItemsSuccess
-} from "./cartActions";
+import { clearCart, fetchCartItemsSuccess } from "./cartActions";
 import { getItems } from "./cartSelectors";
 import { firestore } from "../../firebase/Firebase";
 import { getCurrentUser } from "../user/userSelector";

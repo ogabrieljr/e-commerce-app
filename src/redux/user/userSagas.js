@@ -4,7 +4,7 @@ import {
   googleProvider,
   createUserProfileDocument
 } from "../../firebase/Firebase";
-import { signInSuccess, signInFail, signOutSuccess } from "./userActions";
+import { signInSuccess, signInFail } from "./userActions";
 
 function* getUserAuth(userAuth, additionalData) {
   // Object { I: [], l: "AIzaSyAgqoA0UGTsg0z3aTNmh8-emhCR7et2cxY", m: "[DEFAULT]", o: "ecommerce-crwn.firebaseapp.com" }
@@ -48,12 +48,11 @@ function* signWithWithEmail({ payload: { email, password } }) {
 }
 
 function* onSignOut() {
-  yield takeLatest("SIGN_OUT_START", signOutUser);
+  yield takeLatest("SIGN_OUT_SUCCESS", signOutUser);
 }
 
 function* signOutUser() {
   yield auth.signOut();
-  yield put(signOutSuccess());
 }
 
 function* onSignUpStart() {
