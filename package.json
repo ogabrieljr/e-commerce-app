@@ -1,49 +1,31 @@
 {
-  "name": "e-commerce-crw",
-  "version": "0.1.0",
-  "private": true,
-  "homepage": "https://whatisthenote.github.io/e-commerce-crw",
-  "dependencies": {
-    "firebase": "^7.2.2",
-    "node-sass": "^4.13.0",
-    "react": "^16.11.0",
-    "react-dom": "^16.11.0",
-    "react-redux": "^7.1.1",
-    "react-router-dom": "^5.1.2",
-    "react-scripts": "3.2.0",
-    "react-stripe-checkout": "^2.6.3",
-    "redux": "^4.0.4",
-    "redux-logger": "^3.0.6",
-    "redux-persist": "^6.0.0",
-    "redux-saga": "^1.1.1",
-    "redux-thunk": "^2.3.0",
-    "reselect": "^4.0.0",
-    "styled-components": "^4.4.0"
-  },
+  "name": "e-commerce-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
-  "eslintConfig": {
-    "extends": "react-app"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/whatisthenote/e-commerce-app.git"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/whatisthenote/e-commerce-app/issues"
+  },
+  "homepage": "https://github.com/whatisthenote/e-commerce-app#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "stripe": "^7.15.0"
   },
   "devDependencies": {
-    "gh-pages": "^2.1.1"
+    "concurrently": "^5.0.2"
   }
 }
