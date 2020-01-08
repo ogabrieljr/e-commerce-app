@@ -13,7 +13,7 @@ export default function stripeButton({ totalPrice }) {
         token
       }
     })
-      .then(res => alert("Payment was succesful!"))
+      .then(res => alert("Payment was successful!"))
       .catch(error => {
         alert("There was an issue with your payment.");
       });
