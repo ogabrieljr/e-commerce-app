@@ -1,14 +1,14 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "59a18b765dce85e314eccd8a8656a7f0",
+    "revision": "dc943d495e40eea1255240198c7608cd",
     "url": "/e-commerce-crw/index.html"
   },
   {
-    "revision": "ab5122392eef98e33cd5",
+    "revision": "4aa5b6c65df514f0b612",
     "url": "/e-commerce-crw/static/css/4.46ebb8da.chunk.css"
   },
   {
-    "revision": "a71f43c03e9495824372",
+    "revision": "3099c9d6115fe0016b7e",
     "url": "/e-commerce-crw/static/css/5.4264d766.chunk.css"
   },
   {
@@ -16,11 +16,11 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/e-commerce-crw/static/css/6.6a6984dd.chunk.css"
   },
   {
-    "revision": "5455bf176c5a6781888c",
+    "revision": "3f82de077575452aef1f",
     "url": "/e-commerce-crw/static/css/7.5f76d910.chunk.css"
   },
   {
-    "revision": "cd14646f7f40f66894fb",
+    "revision": "132d17d006f63d21a986",
     "url": "/e-commerce-crw/static/css/main.e2514b9a.chunk.css"
   },
   {
@@ -32,28 +32,28 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/e-commerce-crw/static/js/3.a7dbd2f5.chunk.js"
   },
   {
-    "revision": "ab5122392eef98e33cd5",
-    "url": "/e-commerce-crw/static/js/4.4ac31302.chunk.js"
+    "revision": "4aa5b6c65df514f0b612",
+    "url": "/e-commerce-crw/static/js/4.5fe96172.chunk.js"
   },
   {
-    "revision": "a71f43c03e9495824372",
-    "url": "/e-commerce-crw/static/js/5.10cd9553.chunk.js"
+    "revision": "3099c9d6115fe0016b7e",
+    "url": "/e-commerce-crw/static/js/5.47c77d6a.chunk.js"
   },
   {
     "revision": "9d3d47434092fb5fdeb1",
     "url": "/e-commerce-crw/static/js/6.94afe983.chunk.js"
   },
   {
-    "revision": "5455bf176c5a6781888c",
-    "url": "/e-commerce-crw/static/js/7.815bc80d.chunk.js"
+    "revision": "3f82de077575452aef1f",
+    "url": "/e-commerce-crw/static/js/7.49b13c51.chunk.js"
   },
   {
-    "revision": "cd14646f7f40f66894fb",
-    "url": "/e-commerce-crw/static/js/main.eaa1a5ee.chunk.js"
+    "revision": "132d17d006f63d21a986",
+    "url": "/e-commerce-crw/static/js/main.18c9985d.chunk.js"
   },
   {
-    "revision": "63c7409f6dce4cc6d3b9",
-    "url": "/e-commerce-crw/static/js/runtime-main.79ab9cc1.js"
+    "revision": "18a5447906a872041380",
+    "url": "/e-commerce-crw/static/js/runtime-main.12c0259e.js"
   },
   {
     "revision": "30f0707118fb960665491424c115ac44",
