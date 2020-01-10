@@ -1,8 +1,13 @@
 import StripeCheckout from "react-stripe-checkout";
 import React from "react";
 import axios from "axios";
+import { withRouter } from "react-router-dom";
+import { clearCart } from "../../redux/cart/cartActions";
+import { connect } from "react-redux";
 
-export default function stripeButton({ totalPrice }) {
+function StripeButton({ totalPrice, history, dispatch }) {
+  console.log(dispatch);
+
   const stripePrice = totalPrice * 100;
   const handleToken = token => {
     axios({
@@ -13,10 +18,11 @@ export default function stripeButton({ totalPrice }) {
         token
       }
     })
-      .then(res => alert("Payment was successful!"))
-      .catch(error => {
-        alert("There was an issue with your payment.");
-      });
+      .then(res => {
+        alert("Payment was successful!");
+        history.push("/");
+      })
+      .catch(error => alert("There was an issue with your payment."));
   };
 
   return (
@@ -34,3 +40,5 @@ export default function stripeButton({ totalPrice }) {
     </div>
   );
 }
+
+export default withRouter(connect(null)(StripeButton));
