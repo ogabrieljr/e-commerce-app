@@ -8,7 +8,20 @@
     flex-direction: column;
     padding: 10px;
     width: 350px;
-    margin-left: -10px;
+    margin-left: 120px;
+    overflow: hidden;
+
+    .buttons {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  @media screen and (max-width: 550px) {
+    flex-direction: column;
+    padding: 10px;
+    width: 350px;
+    margin-left: -5px;
     overflow: hidden;
 
     .buttons {

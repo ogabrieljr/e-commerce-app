@@ -2,12 +2,9 @@ import StripeCheckout from "react-stripe-checkout";
 import React from "react";
 import axios from "axios";
 import { withRouter } from "react-router-dom";
-import { clearCart } from "../../redux/cart/cartActions";
 import { connect } from "react-redux";
 
 function StripeButton({ totalPrice, history, dispatch }) {
-  console.log(dispatch);
-
   const stripePrice = totalPrice * 100;
   const handleToken = token => {
     axios({

@@ -2,6 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const path = require("path");
 const cors = require("cors");
+const nodemailer = require("nodemailer");
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -34,5 +35,29 @@ app.post("/payment", (req, res) => {
   stripe.charges.create(body, (stripeErr, stripeRes) => {
     if (stripeErr) res.status(500).send({ error: stripeErr });
     res.status(200).send({ success: stripeRes });
+  });
+});
+
+app.post("/contact", (req, res) => {
+  const { email, name, message, subject } = req.body;
+
+  let transporter = nodemailer.createTransport({
+    service: "gmail",
+    auth: {
+      user: process.env.EMAIL,
+      pass: process.env.PASSWORD
+    }
+  });
+
+  let info = {
+    from: `${name} <${email}>`,
+    to: process.env.EMAIL,
+    subject,
+    text: `${email} ${message}`
+  };
+
+  transporter.sendMail(info, (error, info) => {
+    if (error) res.send("Error occurred, please try again later.");
+    res.send("Message sent!");
   });
 });
