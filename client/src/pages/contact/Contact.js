@@ -21,7 +21,8 @@ export default function Contact() {
     setCredentials({ ...credentials, [name]: value });
   };
 
-  const submit = () => {
+  const submit = event => {
+    event.preventDefault();
     axios({
       url: "contact",
       method: "post",
@@ -39,7 +40,7 @@ export default function Contact() {
   return (
     <div className="sign-in">
       <h2>Contact us</h2>
-      <div>
+      <form onSubmit={submit}>
         <Input
           handleChange={handleChange}
           name="name"
@@ -72,12 +73,11 @@ export default function Contact() {
           label="Message"
           cols="20"
           rows="7"
+          required
         />
-        <div className="buttons">
-          <p>{response}</p>
-        </div>
-        <Button onClick={submit}>Send</Button>
-      </div>
+        <p>{response}</p>
+        <Button type="submit">Send</Button>
+      </form>
     </div>
   );
 }
